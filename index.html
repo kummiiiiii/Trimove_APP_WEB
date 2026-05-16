@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriMove – Malaking Pulo Tricycle App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 80px;
+    }
+    .hero-icon { font-size: 72px; margin-bottom: 16px; }
+    .hero h1 { font-size: 42px; font-weight: 800; letter-spacing: -1px; }
+    .hero p { font-size: 18px; opacity: 0.9; margin-top: 10px; }
+    .hero-sub { font-size: 14px; opacity: 0.75; margin-top: 6px; }
+
+    /* DOWNLOAD CARD */
+    .download-section {
+      max-width: 480px;
+      margin: -40px auto 0;
+      padding: 0 20px;
+    }
+    .download-card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+    .download-card h2 { font-size: 20px; margin-bottom: 6px; }
+    .download-card p { font-size: 14px; color: #6b7280; margin-bottom: 24px; }
+
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      background: #f97316;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-bottom: 12px;
+    }
+    .btn-download:hover { background: #ea580c; }
+    .btn-download:active { transform: scale(0.98); }
+    .btn-download.disabled {
+      background: #d1d5db;
+      color: #9ca3af;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .version-badge {
+      display: inline-block;
+      background: #f3f4f6;
+      color: #6b7280;
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* STEPS */
+    .steps-section {
+      max-width: 480px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+    .steps-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #fff7ed;
+      color: #f97316;
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-text strong { display: block; font-size: 14px; margin-bottom: 2px; }
+    .step-text span { font-size: 13px; color: #6b7280; }
+
+    /* iPhone section */
+    .iphone-section {
+      max-width: 480px;
+      margin: 10px auto 24px;
+      padding: 0 20px;
+    }
+    .iphone-card {
+      background: #f0f9ff;
+      border: 1.5px solid #bae6fd;
+      border-radius: 14px;
+      padding: 18px;
+    }
+    .iphone-card h3 { font-size: 15px; font-weight: 700; color: #0369a1; margin-bottom: 12px; }
+    .iphone-step { font-size: 13px; color: #374151; margin-bottom: 8px; display: flex; gap: 8px; }
+    .iphone-step span:first-child { flex-shrink: 0; }
+
+    /* FEATURES */
+    .features {
+      max-width: 480px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+    .features-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 14px;
+      color: #374151;
+    }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .feature-item {
+      background: white;
+      border-radius: 14px;
+      padding: 18px 14px;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .feature-icon { font-size: 28px; margin-bottom: 8px; }
+    .feature-label { font-size: 13px; font-weight: 600; color: #374151; }
+    .feature-desc { font-size: 12px; color: #9ca3af; margin-top: 2px; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-icon">🛺</div>
+    <h1>TriMove</h1>
+    <p>Malaking Pulo Tricycle App</p>
+    <div class="hero-sub">Tanauan City, Batangas, Philippines</div>
+  </div>
+
+  <!-- DOWNLOAD CARD -->
+  <div class="download-section">
+    <div class="download-card">
+      <h2>Download the App</h2>
+      <p>Free for drivers and passengers in Malaking Pulo</p>
+      <span class="version-badge">Version 1.0 · Android</span>
+
+      <!-- UPDATE THE href BELOW WITH YOUR APK FILE NAME -->
+      <a class="btn-download" href="trimove.apk" download="TriMove.apk">
+        ⬇️ Download APK for Android
+      </a>
+
+      <p style="font-size:12px; color:#9ca3af;">
+        File size: ~10 MB · Requires Android 6.0+
+      </p>
+    </div>
+  </div>
+
+  <!-- ANDROID INSTALL STEPS -->
+  <div class="steps-section">
+    <div class="steps-title">📱 How to Install on Android</div>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>Download the APK</strong>
+        <span>Tap the download button above</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>Allow Unknown Sources</strong>
+        <span>When prompted, tap "Allow from this source" or "Install anyway"</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>Open & Register</strong>
+        <span>Choose your role — Driver or Passenger — and create your account</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <strong>Allow Location Access</strong>
+        <span>Tap "Allow" when the app asks for location permission</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- IPHONE SECTION -->
+  <div class="iphone-section">
+    <div class="iphone-card">
+      <h3>🍎 iPhone Users</h3>
+      <div class="iphone-step"><span>1.</span><span>Open this website in <strong>Safari</strong></span></div>
+      <div class="iphone-step"><span>2.</span><span>Tap the <strong>Share</strong> button (box with arrow at bottom)</span></div>
+      <div class="iphone-step"><span>3.</span><span>Scroll down and tap <strong>"Add to Home Screen"</strong></span></div>
+      <div class="iphone-step"><span>4.</span><span>Tap <strong>Add</strong> — the app icon appears on your home screen</span></div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="features-title">What TriMove does</div>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🙋</div>
+        <div class="feature-label">Signal for Pickup</div>
+        <div class="feature-desc">Passengers toggle ON to get picked up</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🗺️</div>
+        <div class="feature-label">Live Map</div>
+        <div class="feature-desc">Drivers see passenger locations in real time</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📍</div>
+        <div class="feature-label">Local Only</div>
+        <div class="feature-desc">Limited to Malaking Pulo area only</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🆓</div>
+        <div class="feature-label">Completely Free</div>
+        <div class="feature-desc">No fees, no subscriptions</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 TriMove · Malaking Pulo, Tanauan City, Batangas<br />
+    Made for our barangay community 🇵🇭
+  </footer>
+
+</body>
+</html>
